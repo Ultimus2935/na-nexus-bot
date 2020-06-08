@@ -6,10 +6,10 @@ import sys
 from discord.ext import commands
 
 # bot initialization
-bot = commands.Bot(command_prefix='$', case_insensitive=True)
+bot = commands.Bot(command_prefix='~', case_insensitive=True)
 
 # list of cogs to be loaded
-initial_extensions = ['cogs.modulemgr', 'cogs.greeting', 'cogs.rolemgr']#, 'cogs.role-management']
+initial_extensions = ['cogs.modulemgr', 'cogs.greeting', 'cogs.rolemgr', 'cogs.autothrottle']#, 'cogs.role-management']
 
 # loading of cogs
 if __name__ == '__main__':

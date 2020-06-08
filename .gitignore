@@ -134,8 +134,9 @@ config.json
 # VS Code
 .vscode/
 
-# Ultimus Stuff
-token.txt
+# Ultimus2935 Files to be ignored
 todo
 
 disabled_cogs/
+
+cogs/testcog.py
