@@ -133,3 +133,9 @@ config.json
 
 # VS Code
 .vscode/
+
+# Ultimus Stuff
+token.txt
+todo
+
+disabled_cogs/
