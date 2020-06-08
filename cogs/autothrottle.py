@@ -8,7 +8,7 @@ from discord.ext import commands, tasks
 slowmode_delay = 10
 
 timeout = 600
-releaseTime = 60
+releaseTime = 300
 
 message_limit = 100
 
@@ -22,15 +22,20 @@ class AutoThrottle(commands.Cog):
         self.msg_cnt = 0
         self.messageChannel = None
 
+    @commands.command()
+    async def slowmode(self, ctx, delay):
+        await ctx.channel.edit(slowmode_delay=delay)
+
     @tasks.loop(seconds=timeout)
     async def timer(self):
         if self.msg_cnt > message_limit:
-            await self.messageChannel.send(":warning: **Slowmode has been enabeled!**")
             await self.messageChannel.edit(reason="Auto Throttled", slowmode_delay=slowmode_delay)
+            await self.messageChannel.send(":warning: **Slowmode has been enabled!**")
 
             await asyncio.sleep(releaseTime)
 
             await self.messageChannel.edit(reason="Auto Throttled", slowmode_delay=0)
+            await self.messageChannel.send(":thumbsup:  q**Slowmode has been removed!**")
 
         self.msg_cnt = 0
 
